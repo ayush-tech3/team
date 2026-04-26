@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Ledge AI - Secure Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#002111",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "secondary-fixed": "#78fbb6",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#59de9b",
+                        "on-primary-fixed": "#001946",
+                        "on-primary-fixed-variant": "#00419e",
+                        "tertiary": "#13005a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-container": "#007147",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-container": "#6390f6",
+                        "primary-container": "#002867",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e4dfff",
+                        "inverse-primary": "#b1c5ff",
+                        "on-tertiary-fixed-variant": "#4029ba",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "tertiary-container": "#240093",
+                        "on-tertiary-container": "#8f82ff",
+                        "on-tertiary-fixed": "#160066",
+                        "outline-variant": "#c4c6d0",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#75f8b3",
+                        "tertiary-fixed-dim": "#c6bfff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#005232",
+                        "primary": "#00153d",
+                        "surface-tint": "#2559bd",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747780",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "secondary": "#006d43"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(228, 223, 255, 0.15);
+            backdrop-filter: blur(24px);
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(25, 28, 30, 0.06);
+        }
+        
+        /* Custom Load Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeOutRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            animation: fadeOutRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen flex flex-col">
+
+    <main class="flex-grow flex items-center justify-center px-6 py-12 lg:py-20 bg-surface">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-0 overflow-hidden rounded-xl bg-surface-container-lowest editorial-shadow animate-fade-in-up">
+            
+            <!-- Left Side: Editorial & Brand Branding -->
+            <div class="hidden lg:flex flex-col justify-between p-12 bg-primary text-on-primary relative overflow-hidden">
+                <!-- Decorative Abstract Background -->
+                <div class="absolute inset-0 opacity-20">
+                    <img class="w-full h-full object-cover grayscale brightness-50" data-alt="abstract architectural geometry with sharp lines and deep blue shadows creating a sense of secure sophisticated financial structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG9ng7evy_YunDSr9VMvA85LjBaHPlXXJwJn7OZb7yQ1t6kcFgWgephHb9YX2XV-edP_7enJtm1_Sj8CeX--w_aPL9DU4xIuyX3hao2ewlO-rMhoBe00pcjOeFROgGJrgloBt5epm5itc_jnyWeo9N9c8TWSAREhk10Jgv1aAWWw0pF-LTsjnT6Nub4gKz88CsQBx_92GbyLK0W80jRA3kGAFBOkbW-wTRYXqYF9n-k1FsdUIcwsCqW94JLOshXERiE_6nzhKrdFc"/>
+                </div>
+                
+                <div class="relative z-10">
+                    <!-- Linked Back to Landing Page -->
+                    <a href="../index.html" class="inline-block text-2xl font-headline font-black tracking-tighter mb-16 hover:opacity-80 transition-opacity animate-fade-right delay-100">
+                        Ledge AI
+                    </a>
+                    <h1 class="font-headline text-5xl font-extrabold tracking-tight leading-tight mb-6 animate-fade-right delay-200">
+                        The Future of <br/><span class="text-secondary-fixed">Wealth Intelligence.</span>
+                    </h1>
+                    <p class="text-lg text-primary-fixed opacity-80 max-w-md font-light leading-relaxed animate-fade-right delay-300">
+                        Experience an editorial approach to your finances. Secure, intelligent, and designed for those who demand institutional-grade clarity.
+                    </p>
+                </div>
+                
+                <div class="relative z-10 space-y-8 animate-fade-right delay-400">
+                    <div class="glass-effect p-6 rounded-xl border-l-4 border-tertiary-fixed-dim hover:bg-white/5 transition-colors duration-300">
+                        <p class="text-sm font-label uppercase tracking-widest text-tertiary-fixed mb-2">Security Protocol</p>
+                        <p class="text-sm italic opacity-90">"Ledge AI uses 256-bit AES encryption and SOC2 Type II compliance to ensure your ledger is for your eyes only."</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-xs font-label uppercase tracking-widest opacity-60">
+                        <span>SIPC Member</span>
+                        <span class="w-1 h-1 bg-on-primary rounded-full"></span>
+                        <span>FDIC Insured Up to $250k</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Authentication Form -->
+            <div class="p-8 lg:p-16 flex flex-col justify-center bg-surface-container-lowest">
+                <div class="max-w-md w-full mx-auto">
+                    <header class="mb-10 animate-fade-in-up delay-100">
+                        <!-- Linked Mobile Logo -->
+                        <a href="../index.html" class="lg:hidden block text-xl font-headline font-black tracking-tighter text-primary mb-8 hover:opacity-80">
+                            Ledge AI
+                        </a>
+                        <h2 class="font-headline text-3xl font-bold tracking-tight text-primary mb-2">Welcome back</h2>
+                        <p class="text-on-surface-variant text-sm">Enter your credentials to access your premium ledger.</p>
+                    </header>
+
+                    <!-- OAuth Options -->
+                    <div class="grid grid-cols-2 gap-4 mb-8 animate-fade-in-up delay-200">
+                        <button class="flex items-center justify-center gap-3 px-4 py-3 border border-outline-variant rounded-full hover:bg-surface-container-low transition-colors duration-200 active:scale-95">
+                            <img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJpdgr8K1tQA9EIGKqyyZ8gCOkoyC6RZTZEnv93BpZmD56mNh8yGjEqygVvJodkm9VuMYKlsqF1ouT9ehn6rHoTvcPaoDfAxDUKGnBzeFIgHoZdw9cRRhz6hT4Rsb8T0aBdCGQSIJ6Ha9UO7u6gv18bvyfCXNYpzjj_bVGRrNFwiatPl6nG9T2t8YFtPD_Rsm4okTmIVRi0kpZgHN16FvrKgx3-SNAOWBdaMCcn--d1pNW5c34zqYB46sbTJIxX39EE0WZwI4eqpo"/>
+                            <span class="text-sm font-semibold text-primary">Google</span>
+                        </button>
+                        <button class="flex items-center justify-center gap-3 px-4 py-3 border border-outline-variant rounded-full hover:bg-surface-container-low transition-colors duration-200 active:scale-95">
+                            <span class="material-symbols-outlined text-primary" data-icon="account_balance">account_balance</span>
+                            <span class="text-sm font-semibold text-primary">Bank ID</span>
+                        </button>
+                    </div>
+
+                    <div class="relative flex items-center mb-8 animate-fade-in-up delay-200">
+                        <div class="flex-grow border-t border-outline-variant opacity-30"></div>
+                        <span class="flex-shrink mx-4 text-xs font-label text-outline uppercase tracking-widest">or continue with email</span>
+                        <div class="flex-grow border-t border-outline-variant opacity-30"></div>
+                    </div>
+
+                    <!-- Main Form (Updated with onsubmit simulation) -->
+                    <form class="space-y-6 animate-fade-in-up delay-300" onsubmit="event.preventDefault(); window.location.href='../user_dashboard/code.html';">
+                        <div class="space-y-1.5">
+                            <label class="block text-xs font-label uppercase tracking-wider text-on-surface-variant font-semibold" for="email">Email Address</label>
+                            <input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg text-on-surface focus:ring-2 focus:ring-primary transition-all duration-200 placeholder:text-outline/50" id="email" name="email" placeholder="name@institutional.com" required="" type="email"/>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between items-center">
+                                <label class="block text-xs font-label uppercase tracking-wider text-on-surface-variant font-semibold" for="password">Password</label>
+                                <a class="text-xs font-semibold text-on-primary-fixed-variant hover:underline" href="#">Forgot password?</a>
+                            </div>
+                            <input class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg text-on-surface focus:ring-2 focus:ring-primary transition-all duration-200 placeholder:text-outline/50" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary" id="remember" type="checkbox"/>
+                            <label class="text-sm text-on-surface-variant cursor-pointer select-none" for="remember">Keep me logged in for 30 days</label>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-on-primary font-headline font-bold py-4 rounded-full hover:opacity-90 transition-all active:scale-[0.98] duration-200 shadow-sm flex items-center justify-center gap-2 group" type="submit">
+                            Sign In to Dashboard
+                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <footer class="mt-10 text-center animate-fade-in-up delay-400">
+                        <p class="text-sm text-on-surface-variant">
+                            Don't have a Ledge account? 
+                            <!-- Linked to Sign Up Onboarding -->
+                            <a class="text-on-primary-fixed-variant font-bold hover:underline" href="../sign_up_onboarding/code.html">Request Access</a>
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="bg-white dark:bg-slate-950 w-full py-12 border-t border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center">
+            <div class="flex flex-col gap-2">
+                <span class="text-sm font-bold text-blue-900 dark:text-white">Ledge AI</span>
+                <p class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400">
+                    © 2026 Ledge AI Financial. Member SIPC.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-x-8 gap-y-2 mt-6 md:mt-0 md:justify-end">
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Privacy Policy</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Terms of Service</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Security</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

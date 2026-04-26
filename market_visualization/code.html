@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Market Visualization | Ledge AI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#191c1e",
+                        "on-tertiary-container": "#8f82ff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#002111",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#2559bd",
+                        "on-tertiary-fixed-variant": "#4029ba",
+                        "outline-variant": "#c4c6d0",
+                        "outline": "#747780",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#006d43",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007147",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#00419e",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "inverse-primary": "#b1c5ff",
+                        "tertiary-container": "#240093",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-fixed": "#e4dfff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed": "#160066",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#78fbb6",
+                        "primary-fixed": "#dae2ff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#75f8b3",
+                        "tertiary-fixed-dim": "#c6bfff",
+                        "primary": "#00153d",
+                        "on-secondary-fixed-variant": "#005232",
+                        "on-primary-fixed": "#001946",
+                        "inverse-surface": "#2d3133",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "tertiary": "#13005a",
+                        "secondary-fixed-dim": "#59de9b",
+                        "primary-container": "#002867",
+                        "on-primary-container": "#6390f6",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(19, 0, 90, 0.05);
+            backdrop-filter: blur(24px);
+        }
+        .terminal-text {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        /* Custom Load Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white overflow-hidden">
+    <div class="flex h-screen w-full">
+        <!-- Side Navigation (Animated) -->
+        <aside class="hidden md:flex flex-col h-screen p-4 border-r border-transparent bg-slate-100 dark:bg-slate-900 font-inter text-xs font-medium tracking-widest uppercase w-64 animate-fade-right">
+            <div class="mb-8 px-2">
+                <a href="../index.html" class="hover:opacity-80 transition-opacity">
+                    <h1 class="font-manrope font-extrabold text-blue-950 dark:text-white tracking-tighter text-2xl">Ledge AI</h1>
+                    <p class="text-[10px] opacity-60 tracking-normal mt-1">Institutional Intelligence</p>
+                </a>
+            </div>
+            <nav class="flex-1 space-y-1">
+                <!-- Dashboard -->
+                <a href="../user_dashboard/code.html" class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-md">
+                    <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <!-- Market Insights -->
+                <a href="../market_intelligence/code.html" class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-md">
+                    <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+                    <span>Market Insights</span>
+                </a>
+                <!-- Portfolio -->
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-md">
+                    <span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                    <span>Portfolio</span>
+                </a>
+                <!-- Forecasts (Active Visual Page) -->
+                <a href="../market_visualization/code.html" class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-blue-900 dark:text-white rounded-md shadow-sm translate-x-1 duration-300 cursor-pointer">
+                    <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                    <span>Forecasts</span>
+                </a>
+                <!-- Settings -->
+                <a href="#" class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-all cursor-pointer rounded-md">
+                    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <button class="mt-4 mb-8 mx-2 py-3 bg-primary text-on-primary rounded-full text-[10px] font-bold tracking-widest hover:bg-primary-container hover:scale-105 active:scale-95 transition-all">
+                NEW ANALYSIS
+            </button>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-1">
+                <a href="../support_feedback/code.html" class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 cursor-pointer rounded-md transition-colors">
+                    <span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+                    <span>Support</span>
+                </a>
+                <a href="../authentication/code.html" class="flex items-center gap-3 px-3 py-2 text-error hover:bg-error/10 cursor-pointer rounded-md transition-colors">
+                    <span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Canvas -->
+        <main class="flex-1 h-screen overflow-y-auto bg-surface relative flex flex-col">
+            <!-- Top App Bar -->
+            <header class="sticky top-0 z-10 bg-surface/80 backdrop-blur-md px-8 py-6 flex justify-between items-center animate-fade-in-up delay-100">
+                <div class="flex items-center gap-6 flex-1">
+                    <div class="relative w-full max-w-md group">
+                        <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+                        <input class="w-full bg-surface-container-low border-none rounded-full py-2.5 pl-12 pr-4 text-sm font-medium focus:ring-2 focus:ring-primary/10 placeholder:text-outline-variant transition-all" placeholder="Search Symbol (e.g. $AAPL, $TSLA)" type="text"/>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold tracking-tight shadow-sm">MARKET OPEN</span>
+                        <span class="text-[10px] font-label font-bold text-outline uppercase tracking-widest">NYSE: 14:32:01 EST</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex flex-col items-end">
+                        <span class="text-xs font-bold text-primary">NVIDIA CORP</span>
+                        <span class="text-[10px] font-mono text-secondary font-bold animate-pulse">$NVDA · +4.12%</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container cursor-pointer hover:ring-2 ring-primary/30 transition-all">
+                        <img class="w-full h-full object-cover" data-alt="professional portrait of a financial analyst in a dark suit against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnq1hOt8hR5G9MO4CBL23xbYpa3iXtVk3kvIxJtP_QNu6VjmpNZ_Q3CHwqBinuy7453cUnmYj973Y0TuvZganKJ1uXXJMWIf2k8AzbCe83Am87rU4kR2gepBMSzUveDaETaYxGxmKD_2ArsG6K63WZFxlltIrTl77h4SmA2-F1lndH5puZG9DkxZY3F-6sTLQ-qfiaW5OHH0cKCLXYYVWlHhQr5osKQTk5PNNGBu8opaFtJM2ncREfZxhTQE3yELc0ar06mJGPckk"/>
+                    </div>
+                </div>
+            </header>
+
+            <div class="px-8 pb-12 grid grid-cols-12 gap-6">
+                <!-- Main Chart Area -->
+                <div class="col-span-12 lg:col-span-9 space-y-6 animate-fade-in-up delay-200">
+                    <!-- Hero Price Details -->
+                    <div class="flex items-baseline gap-6 py-4">
+                        <h2 class="text-6xl font-headline font-extrabold tracking-tighter text-primary">822.79</h2>
+                        <div class="flex flex-col">
+                            <span class="text-secondary font-bold text-lg flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm" data-icon="trending_up" data-weight="fill">trending_up</span>
+                                +32.58 (4.12%)
+                            </span>
+                            <span class="text-xs text-outline font-medium uppercase tracking-widest">After Hours: 824.10 (+0.16%)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Chart Container -->
+                    <div class="bg-surface-container-lowest rounded-xl p-8 relative min-h-[500px] flex flex-col shadow-sm">
+                        <div class="flex justify-between items-center mb-8">
+                            <div class="flex bg-surface-container-low p-1 rounded-lg gap-1">
+                                <button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white shadow-sm text-primary transition-all">1D</button>
+                                <button class="px-4 py-1.5 text-xs font-bold rounded-md text-outline hover:text-primary hover:bg-white/50 transition-colors">1W</button>
+                                <button class="px-4 py-1.5 text-xs font-bold rounded-md text-outline hover:text-primary hover:bg-white/50 transition-colors">1M</button>
+                                <button class="px-4 py-1.5 text-xs font-bold rounded-md text-outline hover:text-primary hover:bg-white/50 transition-colors">1Y</button>
+                                <button class="px-4 py-1.5 text-xs font-bold rounded-md text-outline hover:text-primary hover:bg-white/50 transition-colors">ALL</button>
+                            </div>
+                            <div class="flex gap-3">
+                                <button class="flex items-center gap-2 px-4 py-2 border border-outline-variant/30 rounded-full text-xs font-bold text-primary hover:bg-surface-container-low transition-all active:scale-95">
+                                    <span class="material-symbols-outlined text-sm" data-icon="candlestick_chart">candlestick_chart</span>
+                                    Indicators
+                                </button>
+                                <button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-bold hover:opacity-90 transition-all active:scale-95">
+                                    <span class="material-symbols-outlined text-sm" data-icon="ios_share">ios_share</span>
+                                    Export
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Technical Indicator Pills -->
+                        <div class="flex gap-2 mb-6">
+                            <span class="flex items-center gap-2 px-3 py-1 bg-primary/5 border border-primary/10 rounded text-[10px] font-bold text-primary cursor-pointer hover:bg-primary/10 transition-colors">
+                                MA (20, 50, 200) <span class="material-symbols-outlined text-[10px] hover:text-error" data-icon="close">close</span>
+                            </span>
+                            <span class="flex items-center gap-2 px-3 py-1 bg-tertiary/5 border border-tertiary/10 rounded text-[10px] font-bold text-tertiary cursor-pointer hover:bg-tertiary/10 transition-colors">
+                                RSI (14): 62.4 <span class="material-symbols-outlined text-[10px] hover:text-error" data-icon="close">close</span>
+                            </span>
+                        </div>
+                        
+                        <!-- Mock Graph Visual -->
+                        <div class="flex-1 relative mt-4">
+                            <!-- Background Grid Lines -->
+                            <div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+                                <div class="border-b border-outline-variant w-full"></div>
+                                <div class="border-b border-outline-variant w-full"></div>
+                                <div class="border-b border-outline-variant w-full"></div>
+                                <div class="border-b border-outline-variant w-full"></div>
+                                <div class="border-b border-outline-variant w-full"></div>
+                            </div>
+                            <!-- Graph SVG simulation -->
+                            <svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none">
+                                <!-- Volume bars -->
+                                <rect fill="#eceef0" height="15%" width="2%" x="5%" y="85%"></rect>
+                                <rect fill="#eceef0" height="30%" width="2%" x="8%" y="70%"></rect>
+                                <rect fill="#eceef0" height="25%" width="2%" x="11%" y="75%"></rect>
+                                <rect fill="#eceef0" height="40%" width="2%" x="14%" y="60%"></rect>
+                                <rect fill="#eceef0" height="20%" width="2%" x="17%" y="80%"></rect>
+                                <!-- Growth Line -->
+                                <path d="M0,350 Q100,320 200,340 T400,280 T600,220 T800,100 L1200,80" fill="none" stroke="#006d43" stroke-linecap="round" stroke-width="3"></path>
+                                <!-- AI Projection (Tertiary) -->
+                                <path d="M800,100 Q900,80 1000,40 T1200,20" fill="none" stroke="#13005a" stroke-dasharray="8,4" stroke-linecap="round" stroke-width="2"></path>
+                                <!-- Data Point Pulse -->
+                                <circle class="animate-pulse" cx="800" cy="100" fill="#006d43" r="6"></circle>
+                                <circle cx="800" cy="100" fill="#006d43" opacity="0.1" r="12"></circle>
+                            </svg>
+                            <!-- Tooltip Simulation -->
+                            <div class="absolute top-[80px] left-[780px] bg-primary text-on-primary p-3 rounded shadow-xl z-20 translate-x-4">
+                                <p class="text-[10px] opacity-70 font-bold tracking-tighter">OCT 24, 14:30</p>
+                                <p class="text-sm font-bold">$822.79</p>
+                                <p class="text-[9px] text-secondary-fixed-dim font-bold">VOL: 4.2M</p>
+                            </div>
+                        </div>
+                        
+                        <!-- X-Axis Labels -->
+                        <div class="flex justify-between mt-6 px-2">
+                            <span class="text-[10px] font-bold text-outline uppercase tracking-tighter">09:30 AM</span>
+                            <span class="text-[10px] font-bold text-outline uppercase tracking-tighter">11:00 AM</span>
+                            <span class="text-[10px] font-bold text-outline uppercase tracking-tighter">01:00 PM</span>
+                            <span class="text-[10px] font-bold text-outline uppercase tracking-tighter">03:00 PM</span>
+                            <span class="text-[10px] font-bold text-outline uppercase tracking-tighter">CLOSE</span>
+                        </div>
+                    </div>
+
+                    <!-- Market Sentiment & Signals -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-widest">Sentiment Score</span>
+                                <span class="material-symbols-outlined text-secondary" data-icon="mood">mood</span>
+                            </div>
+                            <div class="flex items-end gap-2">
+                                <span class="text-3xl font-headline font-extrabold text-primary">84</span>
+                                <span class="text-xs font-bold text-secondary mb-1">Extremely Bullish</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-widest">Buy/Sell Pressure</span>
+                                <span class="material-symbols-outlined text-primary" data-icon="swap_vert">swap_vert</span>
+                            </div>
+                            <div class="w-full bg-surface-container h-2 rounded-full overflow-hidden flex">
+                                <div class="bg-secondary w-[72%] h-full"></div>
+                                <div class="bg-error w-[28%] h-full"></div>
+                            </div>
+                            <div class="flex justify-between mt-2">
+                                <span class="text-[10px] font-bold text-secondary">72% BUY</span>
+                                <span class="text-[10px] font-bold text-error">28% SELL</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="text-[10px] font-bold text-outline uppercase tracking-widest">Bullish Signal</span>
+                                <span class="material-symbols-outlined text-secondary" data-icon="verified" data-weight="fill">verified</span>
+                            </div>
+                            <p class="text-xs font-medium text-on-surface leading-relaxed">
+                                Golden Cross confirmed on 4H timeframe. Potential breakout to $850 imminent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar (AI & Details) -->
+                <div class="col-span-12 lg:col-span-3 space-y-6 animate-fade-in-up delay-300">
+                    <!-- AI Insight Card -->
+                    <div class="glass-ai rounded-xl p-6 border-l-4 border-tertiary shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+                        <div class="flex items-center gap-2 mb-6 text-tertiary">
+                            <span class="material-symbols-outlined text-xl" data-icon="auto_awesome">auto_awesome</span>
+                            <h3 class="font-headline font-bold text-sm tracking-tight">AI Signal Analysis</h3>
+                        </div>
+                        <p class="text-sm font-body text-on-surface leading-relaxed mb-6">
+                            $NVDA exhibits strong institutional accumulation. The recent consolidation above the 50-day EMA suggests a high-probability bullish continuation.
+                        </p>
+                        <div class="bg-tertiary-container/10 p-4 rounded-lg">
+                            <h4 class="text-[10px] font-bold text-tertiary uppercase tracking-widest mb-2">Recommendation</h4>
+                            <p class="text-xs font-bold text-primary">Target: $865.20</p>
+                            <p class="text-xs text-outline mt-1">Stop Loss: $792.00</p>
+                        </div>
+                    </div>
+
+                    <!-- Price Details Terminal Style -->
+                    <div class="bg-primary p-6 rounded-xl text-on-primary shadow-sm">
+                        <h3 class="text-[10px] font-label font-bold tracking-[0.2em] uppercase opacity-50 mb-6">Security Metadata</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">OPEN</span>
+                                <span class="terminal-text text-[10px] font-bold">798.12</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">HIGH</span>
+                                <span class="terminal-text text-[10px] font-bold text-secondary-fixed">824.50</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">LOW</span>
+                                <span class="terminal-text text-[10px] font-bold text-error-container">794.01</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">VOLUME</span>
+                                <span class="terminal-text text-[10px] font-bold">42.82M</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">MKT CAP</span>
+                                <span class="terminal-text text-[10px] font-bold">2.05T</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="terminal-text text-[10px] opacity-70">P/E RATIO</span>
+                                <span class="terminal-text text-[10px] font-bold">72.4x</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="terminal-text text-[10px] opacity-70">52W HIGH</span>
+                                <span class="terminal-text text-[10px] font-bold">824.50</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- News Widget -->
+                    <div class="bg-surface-container-low p-6 rounded-xl shadow-sm">
+                        <h3 class="text-[10px] font-bold text-outline uppercase tracking-widest mb-6">Market Buzz</h3>
+                        <div class="space-y-6">
+                            <div class="group cursor-pointer">
+                                <span class="text-[9px] font-bold text-secondary uppercase tracking-tighter">REUTERS · 2m ago</span>
+                                <p class="text-xs font-bold text-primary group-hover:text-tertiary transition-colors mt-1">Nvidia hits record high as AI chip demand shows no signs of slowing down.</p>
+                            </div>
+                            <div class="group cursor-pointer">
+                                <span class="text-[9px] font-bold text-outline uppercase tracking-tighter">BLOOMBERG · 14m ago</span>
+                                <p class="text-xs font-bold text-primary group-hover:text-tertiary transition-colors mt-1">Tech sector buoyed by robust earnings from semiconductor giants.</p>
+                            </div>
+                            <div class="group cursor-pointer">
+                                <span class="text-[9px] font-bold text-outline uppercase tracking-tighter">CNBC · 42m ago</span>
+                                <p class="text-xs font-bold text-primary group-hover:text-tertiary transition-colors mt-1">Institutional funds increase weighting in AI infrastructure stocks.</p>
+                            </div>
+                        </div>
+                        <button class="w-full mt-6 py-2 text-[10px] font-bold text-primary border border-primary/20 rounded-full hover:bg-white hover:border-primary/40 hover:shadow-sm transition-all active:scale-95">
+                            VIEW ALL NEWS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

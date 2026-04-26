@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(198, 191, 255, 0.1);
+            backdrop-filter: blur(24px);
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#75f8b3",
+              "tertiary-fixed-dim": "#c6bfff",
+              "primary": "#00153d",
+              "on-secondary-fixed-variant": "#005232",
+              "on-primary-fixed": "#001946",
+              "inverse-surface": "#2d3133",
+              "surface-container-high": "#e6e8ea",
+              "background": "#f7f9fb",
+              "on-error": "#ffffff",
+              "tertiary": "#13005a",
+              "secondary-fixed-dim": "#59de9b",
+              "primary-container": "#002867",
+              "on-primary-container": "#6390f6",
+              "secondary-fixed": "#78fbb6",
+              "tertiary-fixed": "#e4dfff",
+              "on-surface": "#191c1e",
+              "on-tertiary-fixed": "#160066",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#dae2ff",
+              "surface-bright": "#f7f9fb",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#007147",
+              "surface": "#f7f9fb",
+              "on-tertiary-fixed-variant": "#4029ba",
+              "outline-variant": "#c4c6d0",
+              "outline": "#747780",
+              "surface-container-low": "#f2f4f6",
+              "secondary": "#006d43",
+              "primary-fixed-dim": "#b1c5ff",
+              "inverse-primary": "#b1c5ff",
+              "tertiary-container": "#240093",
+              "on-primary": "#ffffff",
+              "on-surface-variant": "#43474f",
+              "on-primary-fixed-variant": "#00419e",
+              "surface-container": "#eceef0",
+              "surface-dim": "#d8dadc",
+              "on-background": "#191c1e",
+              "on-tertiary-container": "#8f82ff",
+              "on-secondary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#eff1f3",
+              "surface-tint": "#2559bd",
+              "on-secondary-fixed": "#002111",
+              "surface-container-highest": "#e0e3e5",
+              "surface-variant": "#e0e3e5",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<div class="flex items-center gap-12">
+<a class="text-2xl font-black tracking-tighter text-blue-950 dark:text-white font-headline" href="../index.html">Ledge AI</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-900 dark:white border-b-2 border-blue-900 dark:border-blue-400 pb-1 font-['Manrope'] tracking-tight font-semibold" href="../feature/code.html">Features</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-['Manrope'] tracking-tight font-semibold" href="../solutions_page/code.html">Solutions</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-blue-900 dark:hover:text-white transition-colors font-['Manrope'] tracking-tight font-semibold" href="../pricing_page/code.html">Pricing</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="px-6 py-2.5 font-semibold text-blue-900 hover:bg-slate-100 rounded-lg transition-all" href="../authentication/code.html">Sign In</a>
+<a class="px-6 py-2.5 bg-primary text-on-primary font-bold rounded-full transition-all active:scale-95 duration-200" href="../sign_up_onboarding/code.html">Get Started</a>
+</div>
+</div>
+<div class="bg-slate-200/50 dark:bg-slate-800/50 h-[1px]"></div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<header class="max-w-7xl mx-auto px-8 mb-24">
+<div class="max-w-3xl">
+<span class="text-tertiary font-label uppercase tracking-widest text-xs font-bold mb-4 block">Capabilities Ecosystem</span>
+<h1 class="text-6xl font-headline font-extrabold text-primary tracking-tighter leading-tight mb-8">
+                    The Intelligence Ledger: <br/><span class="text-on-primary-container">Powerful Features</span>
+</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl font-body">
+                    We've redefined the financial interface. By marrying institutional-grade security with fluid AI cognition, Ledge AI transforms raw data into a strategic asset.
+                </p>
+</div>
+</header>
+<!-- Core Features Bento Grid -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="editorial-grid">
+<!-- Smart Expense Tracking -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-lowest rounded-xl p-10 flex flex-col justify-between group hover:surface-container-low transition-colors duration-500">
+<div class="max-w-lg">
+<span class="material-symbols-outlined text-primary text-4xl mb-8" data-icon="payments">payments</span>
+<h3 class="text-3xl font-headline font-bold text-primary mb-4 tracking-tight">Smart Expense Tracking</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Automatic categorization of global transactions with merchant enrichment. Our AI identifies recurring subscriptions and anomalies before they impact your liquidity.</p>
+</div>
+<div class="relative h-48 rounded-lg overflow-hidden mt-4">
+<img alt="Expense Visualization" class="w-full h-full object-cover rounded-lg" data-alt="Modern minimalist financial dashboard showing clean line charts and expense breakdown on a high-resolution screen with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQwcOQhf7JtUgmMq0UcCGcJBwhKCwMr6Bv29ErjXIei366xvflFWKcHL-ac8TLL9YD140F6rEvohFMfzIQNYJdw-FQo2T75Vo4UvSmsleEcL05-W_5pSzMo0RUS7Txd5irRXou9koIeRy6mlApz6E27daPPs8zdCyG3eU9hwb5PtRYW1aHpVp7CAkdiG3-7SMW9noOU1DknY7wjfWawLtoBjbqcjN0pTpn23oEwkTTaDnOZDR1-knmGLidh50R24iV7cFnwiyf5U4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 to-transparent"></div>
+</div>
+</div>
+<!-- AI Budget Planner -->
+<div class="col-span-12 md:col-span-4 bg-tertiary-container text-on-tertiary-container rounded-xl p-10 flex flex-col">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl mb-8" data-icon="monitoring">monitoring</span>
+<h3 class="text-2xl font-headline font-bold mb-4 tracking-tight">AI Budget Planner</h3>
+<p class="text-tertiary-fixed text-sm leading-relaxed mb-auto">Dynamic budgeting that evolves with your lifestyle. Ledge AI learns your spending patterns to suggest realistic, fluid limits that actually stick.</p>
+<div class="mt-8 pt-8 border-t border-tertiary/30">
+<div class="flex items-center gap-2">
+<span class="text-3xl font-bold font-headline">94%</span>
+<span class="text-xs font-label uppercase tracking-wider opacity-70">User Success Rate</span>
+</div>
+</div>
+</div>
+<!-- Market Intelligence -->
+<div class="col-span-12 md:col-span-4 bg-secondary-container text-on-secondary-container rounded-xl p-10 flex flex-col">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl mb-8" data-icon="account_balance">account_balance</span>
+<h3 class="text-2xl font-headline font-bold mb-4 tracking-tight">Market Intelligence</h3>
+<p class="text-on-secondary-fixed-variant text-sm leading-relaxed mb-6">Real-time global market data feeds directly into your ledger. Understand how external volatility impacts your personal net worth instantly.</p>
+<div class="mt-auto flex gap-1">
+<div class="h-12 w-full bg-on-secondary-container/10 rounded-sm"></div>
+<div class="h-12 w-full bg-on-secondary-container/20 rounded-sm"></div>
+<div class="h-12 w-full bg-on-secondary-container/30 rounded-sm"></div>
+<div class="h-12 w-full bg-on-secondary-container/40 rounded-sm"></div>
+</div>
+</div>
+<!-- AI Financial Advisor -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-low rounded-xl p-10 flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<div class="glass-ai inline-flex p-3 rounded-xl mb-6 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary" data-icon="smart_toy">smart_toy</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-primary mb-4 tracking-tight">AI Financial Advisor</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">A private, LLM-powered advisor that understands your entire financial history. Ask complex questions about tax optimization or long-term growth.</p>
+<button class="bg-tertiary text-on-tertiary px-6 py-3 rounded-full font-bold text-sm">Consult Ledge AI</button>
+</div>
+<div class="w-full md:w-64 h-64 bg-surface-container-lowest rounded-full p-2 border-8 border-surface shadow-lg overflow-hidden">
+<img alt="AI Representation" class="w-full h-full object-cover rounded-full" data-alt="Abstract representation of artificial intelligence as a glowing iridescent sphere of data points and crystalline structures in a dark void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj1cSWDsJXv9pQ1_qFFkEsbGzNPXAO-FyqpMpM_GNhgJ0T0esw2AXGx5AjpOwOIffMx9T8mTWd0OjjOQCJQiYzXHalR5qY49bpLjWYaYSjc94Q3X4rr9xegyI0-37MHP57C3MR9BQDI2FJBcxjl-OfnyngFRyOl_9UfJwf0Hs4R43El5Guj5hKdlULVuD4f8fBh8rtzQJ0zlmUfSyGxLDUpTBC7BYoxv18NwDe07vzXfKKguRMlNCj8vtiuZCdCso2uj6pNPsCq1E"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Advanced Features Section -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-extrabold text-primary tracking-tighter mb-4">Advanced Infrastructure</h2>
+<div class="w-24 h-1 bg-primary rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Predictive Spending -->
+<div class="p-8 border-l border-outline-variant/20 hover:bg-surface-container-low transition-colors rounded-r-xl">
+<span class="text-xs font-label font-bold text-on-surface-variant opacity-40 mb-4 block tracking-[0.2em]">01 / FORECASTING</span>
+<h4 class="text-xl font-headline font-bold text-primary mb-4">Predictive Spending</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Neural networks analyze historical cash flow to predict upcoming obligations up to 12 months in advance with 98.2% accuracy.</p>
+</div>
+<!-- Smart Alerts -->
+<div class="p-8 border-l border-outline-variant/20 hover:bg-surface-container-low transition-colors rounded-r-xl">
+<span class="text-xs font-label font-bold text-on-surface-variant opacity-40 mb-4 block tracking-[0.2em]">02 / SENTINEL</span>
+<h4 class="text-xl font-headline font-bold text-primary mb-4">Smart Alerts</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Receive contextual notifications only when it matters. No noise, just actionable intelligence regarding bill hikes or unusual vendor activity.</p>
+</div>
+<!-- Investment Recommendations -->
+<div class="p-8 border-l border-outline-variant/20 hover:bg-surface-container-low transition-colors rounded-r-xl">
+<span class="text-xs font-label font-bold text-on-surface-variant opacity-40 mb-4 block tracking-[0.2em]">03 / STRATEGY</span>
+<h4 class="text-xl font-headline font-bold text-primary mb-4">Investment Engine</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Identifies idle cash and suggests high-yield alternatives or portfolio rebalancing based on your specific risk profile and goals.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="max-w-7xl mx-auto px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-lg font-bold text-blue-950 dark:text-white font-headline">Ledge AI</span>
+<p class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 dark:text-slate-500 text-center md:text-left">
+                    © 2024 Ledge AI. The Intelligent Ledger. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 hover:text-blue-900 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 hover:text-blue-900 transition-opacity" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 hover:text-blue-900 transition-opacity" href="#">Cookie Policy</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 hover:text-blue-900 transition-opacity" href="#">Contact Support</a>
+<a class="font-['Inter'] text-sm tracking-wide uppercase font-medium text-slate-500 hover:text-blue-900 transition-opacity" href="#">Security</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact | Ledge AI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-background": "#191c1e",
+                "on-tertiary-container": "#8f82ff",
+                "on-secondary": "#ffffff",
+                "surface-dim": "#d8dadc",
+                "on-secondary-fixed": "#002111",
+                "surface-container-highest": "#e0e3e5",
+                "surface-variant": "#e0e3e5",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-tertiary": "#ffffff",
+                "inverse-on-surface": "#eff1f3",
+                "surface-tint": "#2559bd",
+                "on-tertiary-fixed-variant": "#4029ba",
+                "outline-variant": "#c4c6d0",
+                "outline": "#747780",
+                "surface-container-low": "#f2f4f6",
+                "secondary": "#006d43",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#007147",
+                "surface": "#f7f9fb",
+                "on-primary-fixed-variant": "#00419e",
+                "surface-container": "#eceef0",
+                "primary-fixed-dim": "#b1c5ff",
+                "inverse-primary": "#b1c5ff",
+                "tertiary-container": "#240093",
+                "on-primary": "#ffffff",
+                "on-surface-variant": "#43474f",
+                "tertiary-fixed": "#e4dfff",
+                "on-surface": "#191c1e",
+                "on-tertiary-fixed": "#160066",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#78fbb6",
+                "primary-fixed": "#dae2ff",
+                "surface-bright": "#f7f9fb",
+                "secondary-container": "#75f8b3",
+                "tertiary-fixed-dim": "#c6bfff",
+                "primary": "#00153d",
+                "on-secondary-fixed-variant": "#005232",
+                "on-primary-fixed": "#001946",
+                "inverse-surface": "#2d3133",
+                "background": "#f7f9fb",
+                "on-error": "#ffffff",
+                "tertiary": "#13005a",
+                "secondary-fixed-dim": "#59de9b",
+                "primary-container": "#002867",
+                "on-primary-container": "#6390f6",
+                "surface-container-high": "#e6e8ea"
+              },
+              fontFamily: {
+                "headline": ["Manrope"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; color: #191c1e; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .glass-ai { background: rgba(36, 0, 147, 0.05); backdrop-filter: blur(24px); border-left: 4px solid #13005a; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+        /* Custom Load Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            animation: fadeRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-white">
+
+    <!-- TopNavBar -->
+    <nav class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto fixed top-0 left-0 right-0 z-50 animate-fade-in-up">
+        <a href="../index.html" class="text-2xl font-bold tracking-tighter text-blue-950 dark:text-white font-manrope hover:opacity-80 transition-opacity">Ledge AI</a>
+        <div class="hidden md:flex space-x-8">
+            <a class="font-manrope tracking-tight text-sm font-semibold uppercase text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Features</a>
+            <a class="font-manrope tracking-tight text-sm font-semibold uppercase text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Solutions</a>
+            <a class="font-manrope tracking-tight text-sm font-semibold uppercase text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors" href="#">Company</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <a href="#" class="px-5 py-2 text-sm font-semibold text-primary hover:text-blue-700 transition-colors">Contact</a>
+            <!-- Linked to Sign Up -->
+            <a href="../sign_up_onboarding/code.html" class="px-6 py-2 bg-primary text-on-primary rounded-full text-sm font-bold transition-transform hover:opacity-90 active:scale-95">Sign Up</a>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Header Section -->
+        <header class="lg:col-span-12 mb-12 animate-fade-in-up delay-100">
+            <span class="font-label text-xs tracking-widest uppercase text-tertiary-container font-semibold mb-4 block">Institutional Support</span>
+            <h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter text-primary max-w-3xl">Precision assistance for the modern ledger.</h1>
+            <p class="mt-6 text-lg text-on-surface-variant max-w-2xl leading-relaxed">Reach our institutional support team or explore our AI-driven knowledge base for immediate assistance with your portfolio insights.</p>
+        </header>
+
+        <!-- Left Column: Contact Form -->
+        <div class="lg:col-span-7 animate-fade-in-up delay-200">
+            <div class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border border-outline-variant/10">
+                <h2 class="font-headline text-2xl font-bold mb-8 text-primary">Direct Inquiry</h2>
+                <form class="space-y-6" onsubmit="event.preventDefault(); window.location.href='../user_dashboard/code.html';">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="font-label text-xs font-bold uppercase tracking-wider text-outline">Full Name</label>
+                            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-4 text-on-surface transition-all" placeholder="Rahul Sharma" type="text" required/>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="font-label text-xs font-bold uppercase tracking-wider text-outline">Work Email</label>
+                            <input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-4 text-on-surface transition-all" placeholder="rsharma@ledge.ai" type="email" required/>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label text-xs font-bold uppercase tracking-wider text-outline">Subject</label>
+                        <select class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-4 text-on-surface transition-all">
+                            <option>Institutional Solutions</option>
+                            <option>Technical Support</option>
+                            <option>Media Inquiry</option>
+                            <option>Feedback</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label text-xs font-bold uppercase tracking-wider text-outline">Message</label>
+                        <textarea class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-4 text-on-surface transition-all" placeholder="How can our intelligence engine assist you today?" rows="5" required></textarea>
+                    </div>
+                    <button class="w-full md:w-auto px-10 py-4 bg-primary text-on-primary font-bold rounded-full transition-all hover:bg-primary-container hover:scale-105 active:scale-95 shadow-md flex justify-center items-center gap-2" type="submit">
+                        Send Inquiry
+                        <span class="material-symbols-outlined text-sm">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column: Info & Social -->
+        <div class="lg:col-span-5 space-y-8 animate-fade-in-up delay-300">
+            <!-- Office Card -->
+            <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+                <h3 class="font-headline text-xl font-bold mb-6 text-primary">Global Headquarters</h3>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4 group">
+                        <span class="material-symbols-outlined text-primary-container group-hover:scale-110 transition-transform">location_on</span>
+                        <div>
+                            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Financial District</p>
+                            <p class="text-on-surface-variant text-sm mt-1">Bandra Kurla Complex, 14th Floor<br/>Mumbai, MH 400051</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 group">
+                        <span class="material-symbols-outlined text-primary-container group-hover:scale-110 transition-transform">call</span>
+                        <div>
+                            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Direct Line</p>
+                            <p class="text-on-surface-variant text-sm mt-1">+91 22 5550 0198</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 group">
+                        <span class="material-symbols-outlined text-primary-container group-hover:scale-110 transition-transform">mail</span>
+                        <div>
+                            <p class="font-bold text-on-surface group-hover:text-primary transition-colors">Institutional Relations</p>
+                            <p class="text-on-surface-variant text-sm mt-1 cursor-pointer hover:underline">intelligence@ledge.ai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-outline-variant/20">
+                    <p class="font-label text-xs font-bold uppercase tracking-widest text-outline mb-4">Connect with us</p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 shadow-sm" href="#">
+                            <span class="material-symbols-outlined text-sm">share</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 shadow-sm" href="#">
+                            <span class="material-symbols-outlined text-sm">public</span>
+                        </a>
+                        <a class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all hover:scale-110 shadow-sm" href="#">
+                            <span class="material-symbols-outlined text-sm">group</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="rounded-xl overflow-hidden h-64 relative bg-surface-container-highest group cursor-pointer hover:shadow-lg transition-shadow">
+                <img alt="Map of Mumbai Financial District" class="w-full h-full object-cover grayscale opacity-60 group-hover:scale-110 group-hover:opacity-80 transition-all duration-700" data-alt="abstract minimalist map design of Mumbai financial district in shades of deep navy and soft gray" data-location="Mumbai" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNtSvpmbXz8pU1ymE73VYvJjsy5Ia3VUixOkGJxEbNx60gKbHfVgMpTgrVTev5mnpXx3b7JNaRClKkeb068gr-lH0QrfQZ-caYv8sAgzO_fbnnBDZSDC1F5v68R4A1yoA2qHBY6yY2oK4t-LZiVWTFZnvE9hUUWlHg4gEj7uWfOA0zyVYg9eb2X4Yt-adFe_4XC9KO9exNvsqpyvCvuWwBVc0R95qwok5y4iT7yNXhz97jzGHI1si0qtUHMn-JWnTgNlIiWNMRhs8"/>
+                <div class="absolute inset-0 bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <span class="px-4 py-2 bg-white rounded-full shadow-lg font-bold text-xs text-primary flex items-center gap-2 group-hover:-translate-y-1 transition-transform">
+                        <span class="material-symbols-outlined text-xs text-error animate-bounce" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        Ledge AI HQ
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section: Asymmetric Layout -->
+        <section class="lg:col-span-12 mt-12 animate-fade-in-up delay-400">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="font-headline text-4xl font-extrabold tracking-tighter text-primary mb-6">Frequently<br/>Examined Questions</h2>
+                    <p class="text-on-surface-variant mb-8 leading-relaxed">Can't find what you're looking for? Our AI systems are constantly learning from these queries to provide better service.</p>
+                    <button class="flex items-center gap-2 text-primary font-bold hover:gap-4 transition-all">
+                        View Full Knowledge Base
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="space-y-4">
+                    <details class="group bg-surface-container-low rounded-lg transition-all open:bg-surface-container-lowest open:shadow-md border border-transparent open:border-outline-variant/20">
+                        <summary class="list-none p-6 cursor-pointer flex justify-between items-center font-bold text-primary">
+                            How does Ledge AI ensure data security?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed text-sm animate-fade-in-up">
+                            We utilize bank-grade AES-256 encryption and multi-signature cold storage for all institutional data. Our infrastructure is audited quarterly by tier-1 cybersecurity firms.
+                        </div>
+                    </details>
+                    <details class="group bg-surface-container-low rounded-lg transition-all open:bg-surface-container-lowest open:shadow-md border border-transparent open:border-outline-variant/20">
+                        <summary class="list-none p-6 cursor-pointer flex justify-between items-center font-bold text-primary">
+                            Can I integrate my existing ERP?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed text-sm animate-fade-in-up">
+                            Yes, Ledge AI offers a robust REST API and pre-built connectors for SAP, Oracle, and Microsoft Dynamics 365. Integration typically takes less than 48 hours.
+                        </div>
+                    </details>
+                    <details class="group bg-surface-container-low rounded-lg transition-all open:bg-surface-container-lowest open:shadow-md border border-transparent open:border-outline-variant/20">
+                        <summary class="list-none p-6 cursor-pointer flex justify-between items-center font-bold text-primary">
+                            What are the platform's trading limits?
+                            <span class="material-symbols-outlined group-open:rotate-180 transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed text-sm animate-fade-in-up">
+                            Limits are tiered based on your institutional membership level. Professional accounts start at $5M daily liquidity with custom limits available for Enterprise clients.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-on-primary py-12 px-8 animate-fade-in-up delay-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="font-manrope font-extrabold text-2xl tracking-tighter">Ledge AI</div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a class="hover:text-primary-fixed-dim transition-colors" href="#">Privacy</a>
+                <a class="hover:text-primary-fixed-dim transition-colors" href="#">Terms</a>
+                <a class="hover:text-primary-fixed-dim transition-colors" href="#">System Status</a>
+            </div>
+            <p class="text-xs text-primary-fixed-dim opacity-60">© 2026 Ledge AI Institutional. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot Widget -->
+    <div class="fixed bottom-6 right-6 z-50 group flex flex-col items-end gap-4 animate-fade-in-up delay-400">
+        
+        <!-- Chat Window (Reveals on Hover) -->
+        <div class="hidden group-hover:flex flex-col w-80 h-[450px] bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/20 overflow-hidden mb-2 animate-fade-in-up" style="animation-duration: 0.3s;">
+            <div class="bg-primary p-4 flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center shadow-inner">
+                    <span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                <div>
+                    <p class="text-white text-sm font-bold leading-none">Ledge Assistant</p>
+                    <p class="text-primary-fixed-dim text-[10px] mt-1 flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span> Online
+                    </p>
+                </div>
+            </div>
+            <div class="flex-1 p-4 overflow-y-auto space-y-4 text-sm bg-surface">
+                <div class="flex gap-2">
+                    <div class="max-w-[85%] p-3 bg-tertiary-container/10 rounded-tr-xl rounded-br-xl rounded-bl-xl border-l-2 border-tertiary shadow-sm text-on-surface">
+                        Welcome to Ledge AI. How can I assist with your institutional analysis today?
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="text-[10px] uppercase font-bold text-outline ml-1 mt-2 tracking-widest">Quick Inquiries</p>
+                    <button class="text-left p-2 rounded-lg bg-surface-container-highest hover:bg-primary-fixed hover:text-primary transition-colors border border-outline-variant/10 text-xs shadow-sm">"How to invest?"</button>
+                    <button class="text-left p-2 rounded-lg bg-surface-container-highest hover:bg-primary-fixed hover:text-primary transition-colors border border-outline-variant/10 text-xs shadow-sm">"Security audit logs"</button>
+                    <button class="text-left p-2 rounded-lg bg-surface-container-highest hover:bg-primary-fixed hover:text-primary transition-colors border border-outline-variant/10 text-xs shadow-sm">"API documentation"</button>
+                </div>
+            </div>
+            <div class="p-4 border-t border-outline-variant/20 flex gap-2 items-center bg-surface-container-lowest">
+                <input class="flex-1 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-primary/20 p-2.5 px-4 transition-all" placeholder="Type message..." type="text"/>
+                <button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-105 active:scale-95 transition-transform shrink-0">
+                    <span class="material-symbols-outlined text-sm">send</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- FAB button -->
+        <button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center hover:scale-110 hover:shadow-primary/30 transition-all duration-300">
+            <span class="material-symbols-outlined text-2xl group-hover:hidden transition-all" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+            <span class="material-symbols-outlined text-2xl hidden group-hover:block transition-all" style="font-variation-settings: 'FILL' 1;">close</span>
+        </button>
+    </div>
+
+</body>
+</html>

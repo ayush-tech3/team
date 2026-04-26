@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Market Intelligence | Ledge AI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#191c1e",
+                        "on-tertiary-container": "#8f82ff",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed": "#002111",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#2559bd",
+                        "on-tertiary-fixed-variant": "#4029ba",
+                        "outline-variant": "#c4c6d0",
+                        "outline": "#747780",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#006d43",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#007147",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed-variant": "#00419e",
+                        "surface-container": "#eceef0",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "inverse-primary": "#b1c5ff",
+                        "tertiary-container": "#240093",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-fixed": "#e4dfff",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed": "#160066",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#78fbb6",
+                        "primary-fixed": "#dae2ff",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#75f8b3",
+                        "tertiary-fixed-dim": "#c6bfff",
+                        "primary": "#00153d",
+                        "on-secondary-fixed-variant": "#005232",
+                        "on-primary-fixed": "#001946",
+                        "inverse-surface": "#2d3133",
+                        "background": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "tertiary": "#13005a",
+                        "secondary-fixed-dim": "#59de9b",
+                        "primary-container": "#002867",
+                        "on-primary-container": "#6390f6",
+                        "surface-container-high": "#e6e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .glass-insight {
+            background: rgba(198, 191, 255, 0.1);
+            backdrop-filter: blur(24px);
+            border-left: 4px solid #13005a;
+        }
+
+        /* Custom Load Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .animate-fade-right {
+            opacity: 0;
+            animation: fadeRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen pb-16 md:pb-0">
+
+    <!-- Side Navigation Shell (Animated) -->
+    <aside class="hidden md:flex flex-col h-screen p-4 border-r border-transparent bg-slate-100 dark:bg-slate-900 w-64 fixed left-0 top-0 animate-fade-right z-40">
+        <div class="mb-8 px-2">
+            <!-- Linked to Landing Page -->
+            <a href="../index.html" class="hover:opacity-80 transition-opacity">
+                <h1 class="font-manrope font-extrabold text-blue-950 dark:text-white tracking-tighter text-2xl">Ledge AI</h1>
+                <p class="font-inter text-xs font-medium tracking-widest uppercase text-slate-500 mt-1">Institutional Intelligence</p>
+            </a>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 font-inter text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:translate-x-1" href="../user_dashboard/code.html">
+                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-slate-800 text-blue-900 dark:text-white rounded-md shadow-sm font-inter text-xs font-medium tracking-widest uppercase transition-all duration-300 translate-x-1" href="#">
+                <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+                <span>Market Insights</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 font-inter text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:translate-x-1" href="#">
+                <span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+                <span>Portfolio</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 font-inter text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:translate-x-1" href="../market_visualization/code.html">
+                <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+                <span>Forecasts</span>
+            </a>
+            <a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 font-inter text-xs font-medium tracking-widest uppercase transition-all duration-300 hover:translate-x-1" href="#">
+                <span class="material-symbols-outlined" data-icon="settings">settings</span>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-800">
+            <button class="w-full bg-primary text-on-primary rounded-full py-2.5 px-4 mb-4 text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95">
+                <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Analysis
+            </button>
+            <div class="space-y-1">
+                <a class="flex items-center gap-3 px-3 py-2 text-slate-500 font-inter text-xs font-medium tracking-widest uppercase hover:bg-slate-200 dark:hover:bg-slate-800 transition-all rounded-md" href="../support_feedback/code.html">
+                    <span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                    <span>Support</span>
+                </a>
+                <a class="flex items-center gap-3 px-3 py-2 text-error font-inter text-xs font-medium tracking-widest uppercase hover:bg-error/10 transition-all rounded-md" href="../authentication/code.html">
+                    <span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="flex-1 md:ml-64 bg-surface min-h-screen">
+        <!-- Header Section -->
+        <header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md px-8 py-6 flex justify-between items-center animate-fade-in-up">
+            <div>
+                <h2 class="text-3xl font-extrabold tracking-tight text-primary font-headline">Market Intelligence</h2>
+                <p class="text-on-surface-variant text-sm mt-1">Real-time sentiment analysis and institutional news feed.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative hidden lg:block">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+                    <input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search markets..." type="text"/>
+                </div>
+                <!-- Profile Image -->
+                <div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden cursor-pointer hover:ring-2 ring-primary/50 transition-all">
+                    <img class="w-full h-full object-cover" data-alt="professional businessman in dark suit looking confident in a corporate setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPPOCaTDl1MiXNW-FtSn8HmH65_NErfAHLoZFKGD5lFWIHKEWBP96eTUxobYfeGe8KFvSy1pifMrH7XSm_2V8FB7ebB9IJrD6SvV5O5BLf2EfzTDRbbciJ-dgrZoUfDZRdV1piHwv9kHgMmjNdYDVsplVWMx7kwsaUHr964Vqo0zYyvE_7YX02bgcGbukGxYDhOFyUzkXnOecMWkbplHTsuL4vx0OLhKB4kcc599JPK4oa98r49mLr08FXS1wC8DOiZtt2Z3FNyyU"/>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Layout: Asymmetric Bento Grid -->
+        <div class="px-8 pb-12 grid grid-cols-12 gap-8">
+            
+            <!-- Left Column: Filters & Main Feed -->
+            <section class="col-span-12 lg:col-span-8 space-y-8 animate-fade-in-up delay-100">
+                <!-- Category Filters -->
+                <div class="flex items-center gap-3 overflow-x-auto pb-2 no-scrollbar">
+                    <button class="px-6 py-2 bg-primary text-on-primary rounded-full text-xs font-bold tracking-widest uppercase hover:opacity-90 transition-opacity whitespace-nowrap">All Feeds</button>
+                    <button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap">Stocks</button>
+                    <button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap">Crypto</button>
+                    <button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap">Economy</button>
+                    <button class="px-6 py-2 bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full text-xs font-bold tracking-widest uppercase whitespace-nowrap">Forex</button>
+                </div>
+
+                <!-- Featured Intelligence Card -->
+                <div class="bg-surface-container-lowest rounded-xl overflow-hidden relative group cursor-pointer transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="h-64 overflow-hidden relative">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="modern financial district skyline at night with blue architectural lighting and light trails from traffic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOJI-jYcpWwk9pLaLLKp__h9lyyLqL6Wx1FgJv03h9avHyroLuF3vNJqpXfqUEbpxwI3TUd85K97yPHoklmgiaVcsDSzeLvjYalf6E0D3VWRMFugGiNzBkeWbp7yCnA6QKKn5kbWOVdUo0WeBTZgwp-a_3r5TS1dwtcRWRWgQSpoICG6B6pjc-PQdwl2fm34IV1Tq6HgIttzMd0K734Lr48IxKX73xwNinjeZyl27VBzM21uS-FL0BdhuhxluwmIjFsQVCFLhJN6g"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 text-white">
+                            <span class="bg-secondary px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase mb-3 inline-block shadow-sm">Market Leader</span>
+                            <h3 class="text-2xl font-bold font-headline leading-tight group-hover:text-secondary-fixed transition-colors">Federal Reserve Signals Potential Rate Stability Through Q3</h3>
+                            <div class="flex items-center gap-4 mt-2 text-white/80 text-xs">
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 14 mins ago</span>
+                                <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="source">source</span> Reuters Finance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 glass-insight">
+                        <div class="flex items-start gap-4">
+                            <span class="material-symbols-outlined text-tertiary" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <div>
+                                <p class="text-tertiary font-bold text-xs tracking-widest uppercase mb-2">AI Summary</p>
+                                <p class="text-on-surface leading-relaxed text-sm">Policy shift indicates a cooling inflation cycle. Anticipate increased liquidity in mid-cap tech sectors. Historical data suggests a 4.2% average gain in SPY within 30 days of similar Fed messaging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Feed Cards -->
+                <div class="space-y-4">
+                    <!-- News Card 1 -->
+                    <article class="bg-surface-container-lowest p-6 rounded-xl cursor-pointer group hover:bg-surface-container-low hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 border border-transparent hover:border-outline-variant/20">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase bg-surface-container-high px-2 py-1 rounded">Stocks</span>
+                                <span class="text-outline text-[10px] font-medium uppercase">8:42 AM</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-secondary/10 text-secondary rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                                Positive
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-3 leading-snug group-hover:text-primary-container transition-colors">NVIDIA Reports record data center revenue as AI demand surges across global enterprise.</h4>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden">
+                                <img class="w-full h-full object-cover" data-alt="circular icon of a generic professional business logo in slate blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFSmzZv-utAy8n7hOy_Ha9JTKZ0SUr5h2nJR_Hi3rguD0fKE38EyONOLd985VUYfvlJu5IPqU_3zN8EW9CsqmTGQjAbYLmWTKDCtLnIMz01hcqSRFZlgC89BKYMaHtAhwdDPwWWDC4-NnpdD-TFen-lzKbK1Y11sr9cFcQnOMXw6m4Ll5spuImOahQLy9G_N7EbMKohv-jjDyp1HMtVFKb5N5LI7AxbJHdVHIlMCD0SKMgZxFRt8WZQpMfqXT8frkr_6tPmhdO_iI"/>
+                            </div>
+                            <span class="text-xs font-semibold text-on-surface-variant">Financial Times</span>
+                        </div>
+                        <div class="p-4 bg-tertiary-fixed-dim/10 rounded-lg flex gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-sm shrink-0" data-icon="lightbulb">lightbulb</span>
+                            <p class="text-xs text-on-surface-variant italic">AI Insight: Forward P/E ratio remains attractive despite the rally. Sentiment is bullish with institutional buying pressure at 112% vs 30d avg.</p>
+                        </div>
+                    </article>
+
+                    <!-- News Card 2 -->
+                    <article class="bg-surface-container-lowest p-6 rounded-xl cursor-pointer group hover:bg-surface-container-low hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 border border-transparent hover:border-outline-variant/20">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase bg-surface-container-high px-2 py-1 rounded">Crypto</span>
+                                <span class="text-outline text-[10px] font-medium uppercase">7:15 AM</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-on-surface-variant/10 text-on-surface-variant rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                <span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                Neutral
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-3 leading-snug group-hover:text-primary-container transition-colors">SEC Delays Decision on Ethereum ETF Spot Applications, citing need for further comment.</h4>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden">
+                                <img class="w-full h-full object-cover" data-alt="generic minimalist media logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWluTQIx8LKFbRMti99qBvOMBtSJjR1wZ1etp6LTDeXwyC2NdoU9KnnGI-Vis4DRoAX0tah1D0OK7-KvaOs0h6rJTyk0iArKmGa1Ftl3z7oq3iMCJAAalcHBjKiUGF9sT3WtNuwQqqXmaZ8dJ6QFl2xG7K4u5SZKprHTj3YaIAconpIJTYPIdHj60bCEngaG2ASr4xjw6CbovYvn9l65O3zih2y_UAl_Ngpw1OvoAbddsvL1DHSJBZJ1YQkwoeclF5fzziM0oTtFs"/>
+                            </div>
+                            <span class="text-xs font-semibold text-on-surface-variant">CoinDesk Intelligence</span>
+                        </div>
+                        <div class="p-4 bg-tertiary-fixed-dim/10 rounded-lg flex gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-sm shrink-0" data-icon="lightbulb">lightbulb</span>
+                            <p class="text-xs text-on-surface-variant italic">AI Insight: Historical precedent suggests 12-14 weeks delay before final approval. Expect sideways consolidation in ETH/USD pairs.</p>
+                        </div>
+                    </article>
+
+                    <!-- News Card 3 -->
+                    <article class="bg-surface-container-lowest p-6 rounded-xl cursor-pointer group hover:bg-surface-container-low hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 border border-transparent hover:border-outline-variant/20">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-on-surface-variant text-[10px] font-bold tracking-widest uppercase bg-surface-container-high px-2 py-1 rounded">Economy</span>
+                                <span class="text-outline text-[10px] font-medium uppercase">6:00 AM</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 px-3 py-1 bg-error/10 text-error rounded-full text-[10px] font-bold tracking-widest uppercase">
+                                <span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+                                Negative
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-primary mb-3 leading-snug group-hover:text-primary-container transition-colors">Global Logistics Hit by New Suez Canal Disruptions as shipping rates spike.</h4>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center overflow-hidden">
+                                <img class="w-full h-full object-cover" data-alt="abstract business logo graphic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByosEhrixVyBMD3H3mBhIKRPrEKb1lY5PBCQVG5ZkI-ewPzTdbeDyr2AeZquGaGtBxeqi9pt_ynlry2Zl4Wp3HpBmrF6Ki7TCVPb795jZ_jEszogd3xkYXyc0hmgsBzy5VefB1zLV2y7vT7KJc7eoazHB9JTQlikglFP7aNB_Z9C6L5wM-JKDh0kqcdvQkZqeMZz-tJA4EWF61YAn83QvxqAU4QD1DXBlKwrd8hHZrNdKlxyT3i6jDx4g0pYY1FJJxFvw0bkfFKR4"/>
+                            </div>
+                            <span class="text-xs font-semibold text-on-surface-variant">Bloomberg Terminal</span>
+                        </div>
+                        <div class="p-4 bg-tertiary-fixed-dim/10 rounded-lg flex gap-3">
+                            <span class="material-symbols-outlined text-tertiary text-sm shrink-0" data-icon="lightbulb">lightbulb</span>
+                            <p class="text-xs text-on-surface-variant italic">AI Insight: Supply chain inflationary pressure is rising. Energy commodities (XLE) may see short-term momentum from increased transit costs.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Right Column: AI Sidebar -->
+            <aside class="col-span-12 lg:col-span-4 space-y-8 animate-fade-in-up delay-200">
+                <!-- Trending Detection Bento -->
+                <section class="bg-primary text-on-primary p-6 rounded-xl hover:shadow-lg transition-shadow">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-on-primary-container" data-icon="monitoring" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+                        <h3 class="text-lg font-bold font-headline uppercase tracking-widest text-[10px]">Trending Sentiment</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between group cursor-pointer">
+                            <div class="flex flex-col">
+                                <span class="text-xs font-semibold text-on-primary-container group-hover:text-secondary transition-colors">#GenerativeAI</span>
+                                <span class="text-[10px] text-on-primary/60">4.2k Mentions Today</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-16 h-1 bg-on-primary/20 rounded-full overflow-hidden">
+                                    <div class="bg-secondary h-full w-[85%] group-hover:w-[90%] transition-all duration-500"></div>
+                                </div>
+                                <span class="text-[10px] font-bold text-secondary">+12.5%</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer">
+                            <div class="flex flex-col">
+                                <span class="text-xs font-semibold text-on-primary-container group-hover:text-error transition-colors">#YieldCurve</span>
+                                <span class="text-[10px] text-on-primary/60">1.8k Mentions Today</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-16 h-1 bg-on-primary/20 rounded-full overflow-hidden">
+                                    <div class="bg-error h-full w-[65%] group-hover:w-[70%] transition-all duration-500"></div>
+                                </div>
+                                <span class="text-[10px] font-bold text-error">-4.2%</span>
+                            </div>
+                        </li>
+                        <li class="flex items-center justify-between group cursor-pointer">
+                            <div class="flex flex-col">
+                                <span class="text-xs font-semibold text-on-primary-container group-hover:text-secondary transition-colors">#BitcoinHalving</span>
+                                <span class="text-[10px] text-on-primary/60">3.1k Mentions Today</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-16 h-1 bg-on-primary/20 rounded-full overflow-hidden">
+                                    <div class="bg-secondary h-full w-[92%] group-hover:w-[96%] transition-all duration-500"></div>
+                                </div>
+                                <span class="text-[10px] font-bold text-secondary">+28.1%</span>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Signal Map Section -->
+                <section class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+                    <h3 class="text-xs font-bold font-label text-on-surface-variant uppercase tracking-widest mb-6">Market Volatility Map</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="aspect-square bg-secondary/80 rounded flex flex-col items-center justify-center p-2 text-white text-center hover:bg-secondary cursor-pointer transition-colors hover:scale-[1.02]">
+                            <span class="text-[10px] font-bold uppercase tracking-tighter">AAPL</span>
+                            <span class="text-xs">+2.4%</span>
+                        </div>
+                        <div class="aspect-square bg-secondary/40 rounded flex flex-col items-center justify-center p-2 text-white text-center hover:bg-secondary/60 cursor-pointer transition-colors hover:scale-[1.02]">
+                            <span class="text-[10px] font-bold uppercase tracking-tighter">MSFT</span>
+                            <span class="text-xs">+0.8%</span>
+                        </div>
+                        <div class="aspect-square bg-error/90 rounded flex flex-col items-center justify-center p-2 text-white text-center hover:bg-error cursor-pointer transition-colors hover:scale-[1.02]">
+                            <span class="text-[10px] font-bold uppercase tracking-tighter">TSLA</span>
+                            <span class="text-xs">-4.9%</span>
+                        </div>
+                        <div class="aspect-square bg-on-surface-variant/40 rounded flex flex-col items-center justify-center p-2 text-white text-center hover:bg-on-surface-variant/60 cursor-pointer transition-colors hover:scale-[1.02]">
+                            <span class="text-[10px] font-bold uppercase tracking-tighter">AMZN</span>
+                            <span class="text-xs">+0.1%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Intelligence Alerts -->
+                <section class="space-y-4">
+                    <h3 class="text-xs font-bold font-label text-on-surface-variant uppercase tracking-widest">Institutional Alerts</h3>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-tertiary shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-tertiary text-sm" data-icon="bolt">bolt</span>
+                            <span class="text-[10px] font-bold text-tertiary uppercase tracking-widest">Flash Correlation</span>
+                        </div>
+                        <p class="text-xs text-on-surface leading-relaxed">Unusual correlation detected between Crude Oil prices and Mid-Cap SaaS indices (R² > 0.85). Historical deviation suggests a correction in one asset class within 72 hours.</p>
+                    </div>
+                    <div class="bg-surface-container-lowest p-4 rounded-xl border-l-4 border-secondary shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="material-symbols-outlined text-secondary text-sm" data-icon="psychology">psychology</span>
+                            <span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Sentiment Pivot</span>
+                        </div>
+                        <p class="text-xs text-on-surface leading-relaxed">Social media sentiment for #Gold just hit a 24-month high. Retail interest is surging while institutional positioning remains neutral.</p>
+                    </div>
+                </section>
+
+                <!-- Static Map Integration (Contextual) -->
+                <section class="relative rounded-xl overflow-hidden h-48 group cursor-pointer hover:shadow-lg transition-shadow">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="a map of world showing glowing nodes of connectivity in deep blue and turquoise hues" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFAeHWb48HCbA7bSO7-9mbKT24HNaRaEJqnEn9cQ4vo4--98LTA2k_WpcwooLT8DfYIWV9PQAi65KHbbGQ4piHcHOrLUHWBpWsGLHsTlDkVqhRyEFDs_R0mD0SCIummGKnDz_mErwXDtHfzaM3aB7YeLpn8PKHBOFqAppO-NY2dyD0CnQfxCSUq8YYeq9h1iLQ9fIOrR1KX2e01yZFbF06pogwOabv2KZbJFXCkXp4W7CFpCkCWu3eBuWzzd8JS7vRr8khbf-hFpA"/>
+                    <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/50 transition-colors flex flex-col items-center justify-center p-4 text-center text-white">
+                        <span class="material-symbols-outlined mb-2 animate-bounce" data-icon="language">language</span>
+                        <p class="text-xs font-bold uppercase tracking-widest mb-1">Global Economic Pulse</p>
+                        <p class="text-[10px] opacity-80">Monitoring 48 active central bank protocols</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation Shell (Animated) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-slate-50 border-t-0 flex justify-around items-center py-3 px-6 shadow-[0_-4px_24px_rgba(0,0,0,0.05)] z-50 animate-fade-in-up">
+        <a class="flex flex-col items-center text-slate-500 hover:text-blue-900 transition-colors" href="../user_dashboard/code.html">
+            <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+            <span class="text-[10px] mt-1 font-bold tracking-tighter uppercase">Home</span>
+        </a>
+        <a class="flex flex-col items-center text-blue-900 border-b-2 border-blue-900 pb-1" href="#">
+            <span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+            <span class="text-[10px] mt-1 font-bold tracking-tighter uppercase">Insights</span>
+        </a>
+        <a class="flex flex-col items-center text-slate-500 hover:text-blue-900 transition-colors" href="#">
+            <span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+            <span class="text-[10px] mt-1 font-bold tracking-tighter uppercase">Assets</span>
+        </a>
+        <a class="flex flex-col items-center text-slate-500 hover:text-blue-900 transition-colors" href="#">
+            <span class="material-symbols-outlined" data-icon="settings">settings</span>
+            <span class="text-[10px] mt-1 font-bold tracking-tighter uppercase">Set</span>
+        </a>
+    </nav>
+</body>
+</html>

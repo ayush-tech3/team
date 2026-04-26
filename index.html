@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#002111",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "secondary-fixed": "#78fbb6",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#59de9b",
+                        "on-primary-fixed": "#001946",
+                        "on-primary-fixed-variant": "#00419e",
+                        "tertiary": "#13005a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-background": "#191c1e",
+                        "surface-dim": "#d8dadc",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary-container": "#007147",
+                        "on-surface-variant": "#43474f",
+                        "on-primary-container": "#6390f6",
+                        "primary-container": "#002867",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#e4dfff",
+                        "inverse-primary": "#b1c5ff",
+                        "on-tertiary-fixed-variant": "#4029ba",
+                        "background": "#f7f9fb",
+                        "surface": "#f7f9fb",
+                        "tertiary-container": "#240093",
+                        "on-tertiary-container": "#8f82ff",
+                        "on-tertiary-fixed": "#160066",
+                        "outline-variant": "#c4c6d0",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#75f8b3",
+                        "tertiary-fixed-dim": "#c6bfff",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#005232",
+                        "primary": "#00153d",
+                        "surface-tint": "#2559bd",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747780",
+                        "on-surface": "#191c1e",
+                        "on-error": "#ffffff",
+                        "secondary": "#006d43"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-ai {
+            background: rgba(198, 191, 255, 0.1);
+            backdrop-filter: blur(24px);
+            border-left: 4px solid #13005a;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #00153d 0%, #002867 100%);
+        }
+        
+        /* Custom Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none animate-fade-in-up">
+        <div class="flex justify-between items-center h-16 px-6 lg:px-12 w-full mx-auto">
+            <div class="flex items-center gap-8">
+                <a class="text-xl font-bold tracking-tighter text-blue-950 border-b-2 border-blue-900 dark:text-white font-headline" href="./index.html">Ledge AI</a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a class="text-blue-900 dark:text-white  dark:border-blue-400 pb-1 font-manrope tracking-tight text-sm font-semibold transition-opacity hover:opacity-80" href="./feature/code.html">Features</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 font-manrope tracking-tight text-sm font-semibold transition-opacity hover:opacity-80" href="./solutions_page/code.html">Solutions</a>
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 font-manrope tracking-tight text-sm font-semibold transition-opacity hover:opacity-80" href="./pricing_page/code.html">Pricing</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- Linked to Authentication -->
+                <a href="../authentication/code.html" class="inline-flex items-center justify-center px-4 py-2 text-blue-900 dark:text-blue-100 font-manrope tracking-tight text-sm font-semibold hover:opacity-80 transition-opacity active:scale-95 duration-200">Login</a>
+                <!-- Linked to Sign Up Onboarding -->
+                <a href="../sign_up_onboarding/code.html" class="inline-flex items-center justify-center px-6 py-2 bg-primary text-on-primary rounded-full font-manrope tracking-tight text-sm font-semibold hover:opacity-80 transition-opacity active:scale-95 duration-200">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden bg-surface py-20 lg:py-32">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-xs font-bold tracking-wider uppercase mb-6 opacity-0 animate-on-scroll">
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        Next Generation Ledger
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-extrabold font-headline text-primary tracking-tighter leading-tight mb-8 opacity-0 animate-on-scroll delay-100">
+                        AI-powered financial assistant
+                    </h1>
+                    <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed opacity-0 animate-on-scroll delay-200">
+                        Experience an institutional-grade financial ecosystem. Automate your bookkeeping, derive market intelligence, and receive proactive growth recommendations through our proprietary neural engine.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-on-scroll delay-300">
+                        <!-- Linked to Sign Up -->
+                        <a href="../sign_up_onboarding/code.html" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary rounded-full font-headline font-bold text-lg hover:opacity-90 transition-all hero-gradient shadow-lg">
+                            Get Started
+                        </a>
+                        <!-- Linked to User Dashboard Demo -->
+                        <a href="../user_dashboard/code.html" class="inline-flex items-center justify-center px-8 py-4 border border-outline-variant/30 text-primary rounded-full font-headline font-bold text-lg hover:bg-surface-container-low transition-all">
+                            View Demo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative lg:block opacity-0 animate-on-scroll delay-400">
+                    <div class="absolute inset-0 bg-primary/5 rounded-[2rem] -rotate-3 translate-x-4 animate-float"></div>
+                    <!-- Added animate-float for a nice hover effect -->
+                    <div class="relative bg-surface-container-lowest rounded-[2rem] shadow-2xl overflow-hidden border border-outline-variant/10 animate-float" style="animation-delay: -3s;">
+                        <img alt="Modern financial dashboard interface showing complex data visualizations, growth charts, and AI-generated insights" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGLmBafKurG940_1aONHFNaYSxvJlleB2cIySxjjfjssOVEYfvHEDKBE29MRMDmPj0sFMpsrsRi_wBp38ASx96or36A_JI07DlZYiVzwlJFgQ3jWQ0UZmv-lZmDgdalWGAn3yPfN93gImi-12DDB_6pTp2K_xxPUL6AtEVrqf8y0fEgxHbJZ6OCjaZCooypn1jjYTGtOXxWMY-3zX4C7y4PIxyS6SX4XTbXu6gsnVVuHWE84pgSrTEmRk-NoT3AQWxL3ZaGTb5yZM"/>
+                        
+                        <div class="absolute bottom-6 left-6 right-6 glass-ai p-6 rounded-xl">
+                            <div class="flex items-start gap-4">
+                                <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+                                <div>
+                                    <p class="font-headline font-bold text-primary text-sm">AI Suggestion</p>
+                                    <p class="text-on-surface-variant text-xs mt-1">Based on current cash flow trends, diversifying into short-term treasury bills could increase your yield by 4.2% annually.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Features Section -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <div class="text-center mb-20 opacity-0 animate-on-scroll">
+                    <h2 class="text-4xl font-extrabold font-headline text-primary tracking-tight mb-4">Financial Engineering at Scale</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto italic">High-trust precision meets automated intelligence.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Expense Tracking (Large) -->
+                    <div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between min-h-[400px] hover:shadow-lg transition-shadow duration-300 opacity-0 animate-on-scroll delay-100">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center mb-6">
+                                <span class="material-symbols-outlined text-on-secondary-container">receipt_long</span>
+                            </div>
+                            <h3 class="text-2xl font-bold font-headline text-primary mb-4">Expense tracking</h3>
+                            <p class="text-on-surface-variant max-w-md">Real-time reconciliation of every transaction across multiple corporate accounts with automated tax categorization.</p>
+                        </div>
+                        <div class="mt-8 flex gap-4 overflow-hidden">
+                            <div class="bg-surface p-4 rounded-lg flex-1 border border-outline-variant/10">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest font-label">Software</span>
+                                    <span class="text-xs font-bold text-primary font-headline">$1,240.00</span>
+                                </div>
+                                <div class="w-full bg-surface-variant h-1.5 rounded-full">
+                                    <div class="bg-secondary h-1.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="bg-surface p-4 rounded-lg flex-1 border border-outline-variant/10">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest font-label">Marketing</span>
+                                    <span class="text-xs font-bold text-primary font-headline">$3,850.20</span>
+                                </div>
+                                <div class="w-full bg-surface-variant h-1.5 rounded-full">
+                                    <div class="bg-primary h-1.5 rounded-full" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Market Insights -->
+                    <div class="bg-primary p-8 rounded-xl flex flex-col justify-between text-on-primary hover:shadow-lg transition-shadow duration-300 opacity-0 animate-on-scroll delay-200">
+                        <div>
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-6">
+                                <span class="material-symbols-outlined text-white">monitoring</span>
+                            </div>
+                            <h3 class="text-2xl font-bold font-headline mb-4">Market insights</h3>
+                            <p class="text-on-primary-container leading-relaxed">Contextual analysis of global markets relative to your portfolio's specific exposure.</p>
+                        </div>
+                        <div class="mt-12">
+                            <img alt="Abstract stock market candle stick chart" class="rounded-lg opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuWGzeSEuPU-6v7fDVXJxiwEfOm7LZurOrszoK_WaxjV2MUVk-iXqYehJxlEK-T-5vp7wGUeIEIW7WGSLgZS_7sX_v8SgLbfSr0pGhEVixQReXiRxy3MXnmxnl089HMPnNNUnXwKWXXbck-RZhqE3N2xDjEA2iS6F7wMdimgC6QFM8QXhLg5LQm969aFbCVjM8TJKx6LDHwWkWQhvlQ7fJn8gxOZPX2E0CXgKL-I737d18K18pFcmETXZ7oVTIg1EIH56JNIaY4iA"/>
+                        </div>
+                    </div>
+
+                    <!-- Smart Recommendations -->
+                    <div class="md:col-span-3 glass-ai p-8 rounded-xl flex flex-col md:flex-row items-center gap-12 hover:shadow-lg transition-shadow duration-300 opacity-0 animate-on-scroll delay-300">
+                        <div class="flex-1">
+                            <div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center mb-6">
+                                <span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            </div>
+                            <h3 class="text-3xl font-bold font-headline text-primary mb-4">Smart recommendations</h3>
+                            <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Our AI engine identifies inefficiencies in your capital allocation and suggests high-yield alternatives in real-time, functioning as a virtual CFO.</p>
+                            <!-- Linked to Market Intelligence -->
+                            <a href="../market_intelligence/code.html" class="inline-flex items-center justify-center px-6 py-2 bg-tertiary-container text-on-tertiary-container rounded-full font-headline font-bold text-sm hover:opacity-80 transition-all">
+                                Explore Engine
+                            </a>
+                        </div>
+                        <div class="flex-1 grid grid-cols-2 gap-4">
+                            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+                                <span class="text-3xl font-bold text-secondary font-headline">+$24.3k</span>
+                                <p class="text-xs text-on-surface-variant mt-1 uppercase tracking-widest font-label">Projected Alpha</p>
+                            </div>
+                            <div class="bg-surface-container-lowest p-6 rounded-lg shadow-sm">
+                                <span class="text-3xl font-bold text-primary font-headline">0.12%</span>
+                                <p class="text-xs text-on-surface-variant mt-1 uppercase tracking-widest font-label">Fee Optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof / Logos -->
+        <section class="py-16 bg-surface">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12 opacity-0 animate-on-scroll">
+                <p class="text-center text-xs font-bold text-slate-400 uppercase tracking-[0.3em] font-label mb-12">Trusted by Institutional Partners</p>
+                <div class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+                    <span class="text-2xl font-black font-headline text-primary">VERTEX</span>
+                    <span class="text-2xl font-black font-headline text-primary">CAPITAL</span>
+                    <span class="text-2xl font-black font-headline text-primary">NORDIC</span>
+                    <span class="text-2xl font-black font-headline text-primary">LUMEN</span>
+                    <span class="text-2xl font-black font-headline text-primary">MERIDIAN</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 bg-surface-container-highest">
+            <div class="max-w-5xl mx-auto px-6 text-center opacity-0 animate-on-scroll">
+                <h2 class="text-4xl lg:text-5xl font-extrabold font-headline text-primary tracking-tighter mb-8 leading-tight">Secure your financial future with <span class="text-on-primary-container">Ledge AI.</span></h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <!-- Linked to Sign Up -->
+                    <a href="../sign_up_onboarding/code.html" class="inline-flex items-center justify-center px-10 py-5 bg-primary text-on-primary rounded-full font-headline font-bold text-lg hero-gradient shadow-xl hover:scale-105 transition-transform">
+                        Get Started Now
+                    </a>
+                    <!-- Linked to Support/Feedback for Enterprise Contact -->
+                    <a href="../support_feedback/code.html" class="inline-flex items-center justify-center px-10 py-5 bg-surface-container-lowest text-primary rounded-full font-headline font-bold text-lg hover:bg-surface-container-high transition-colors">
+                        Contact Enterprise
+                    </a>
+                </div>
+                <p class="mt-8 text-on-surface-variant text-sm italic">Join 500+ firms managing $4B+ in assets.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <div class="flex flex-col gap-4">
+                <span class="text-sm font-bold text-blue-900 dark:text-white font-headline">Ledge AI Financial</span>
+                <p class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400">© 2026 Ledge AI Financial. Member SIPC.</p>
+            </div>
+            <div class="flex flex-wrap md:justify-end gap-6">
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Privacy Policy</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Terms of Service</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Security</a>
+                <a class="font-inter text-xs tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-opacity opacity-80" href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script to trigger animations on scroll -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        entry.target.classList.remove('opacity-0');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach((elem) => {
+                observer.observe(elem);
+            });
+        });
+    </script>
+</body>
+</html>

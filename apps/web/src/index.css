@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface font-body text-on-surface antialiased;
+  }
+}
+
+.glass-ai {
+  background: rgba(198, 191, 255, 0.1);
+  backdrop-filter: blur(24px);
+  border-left: 4px solid #13005a;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #00153d 0%, #002867 100%);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}

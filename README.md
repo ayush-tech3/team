@@ -81,7 +81,17 @@ npm run dev
 2. Sign up → you'll land on the dashboard
 3. Browse Market → click a stock → Add to Watchlist
 
-## Deploy to Cloudflare
+## Deploy to Vercel (Frontend)
+
+You can easily deploy the frontend to Vercel. A `vercel.json` configuration is already included in the root directory.
+
+1. Go to your [Vercel Dashboard](https://vercel.com/dashboard) and click **Add New > Project**.
+2. Import this GitHub repository.
+3. Vercel will automatically detect the configuration in `vercel.json` (Framework: Vite, Build Command: `npm run build -w @ledge-ai/web`, Output Dir: `apps/web/dist`).
+4. In the **Environment Variables** section, add `VITE_API_URL` and point it to your deployed Cloudflare API worker (see Cloudflare backend deployment steps below).
+5. Click **Deploy**.
+
+## Deploy to Cloudflare (Full Stack / Backend)
 
 ### Prerequisites
 
